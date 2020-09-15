@@ -1,0 +1,71 @@
+/* pages/personalCenter/personalCenter.wxss */
+.personal-info{
+  width: 700rpx;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.header-img{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.header-img image{
+  width: 100%;
+  height: 100%;
+}
+.user-info{
+  width: 430rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  color: #666666;
+}
+.renzheng{
+  margin-top: 20rpx;
+}
+.edit-personal{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #666666;
+}
+.edit-personal image{
+  width: 18rpx;
+  height: 28rpx;
+  margin-left: 16rpx;
+}
+.nav-bar{
+  width: 100%;
+  height: 80rpx;
+  border-bottom: 1px #eeeeee solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+}
+.nav-bar-title{
+  display: flex;
+  align-items: center;
+}
+.nav-bar-title image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.nav-bar-title text{
+  font-size: 28rpx;
+  color: #666666;
+  margin-left: 14rpx;
+}
+.nav-bar-icon{
+  width: 18rpx;
+  height: 28rpx;
+}

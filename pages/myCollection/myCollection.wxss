@@ -1,0 +1,64 @@
+/* pages/myCollection/myCollection.wxss */
+.head-top{
+  width: 700rpx;
+  height: 60rpx;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+}
+.list-item{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-left:24rpx;
+  padding-right:24rpx;
+  background: #f1f1f1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.list-item image{
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.goods-info{
+  width: 440rpx;
+  height: 150rpx;
+  overflow: hidden;
+}
+checkbox {
+  width: 40rpx;
+  height: 40rpx;
+}
+.list-item checkbox .wx-checkbox-input {
+  width: 36rpx;
+  height: 36rpx;
+}
+.goods-title{
+  font-size: 28rpx;
+  color: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.goods-price{
+  font-size: 28rpx;
+  color: #fe4655;
+  margin-top: 16rpx;
+}
+.collect-num{
+  width: 700rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin: 0 auto;
+  overflow: hidden;
+  font-size: 24rpx;
+  color: #999999;
+}

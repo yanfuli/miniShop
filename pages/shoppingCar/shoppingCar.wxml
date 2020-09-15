@@ -1,0 +1,38 @@
+<!--pages/shoppingCar/shoppingCar.wxml-->
+<view class="container">
+  <block wx:if="{{goodslist.length>0}}">
+  <view class="goods-item" wx:for="{{goodslist}}" wx:key="goods">
+    <image class="goods-img" src="{{imgUrl + item.goodslist.picurl}}" bindtap="goDetail" data-id="{{item.goodslist.id}}" data-tid="{{item.goodslist.typeid}}"></image>
+    <view class="goods-item-right">
+      <view class="goods-item-title" bindtap="goDetail" data-id="{{item.goodslist.id}}" data-tid="{{item.goodslist.typeid}}">
+        <text class="goods-title">{{item.goodslist.title}}{{item.goodslist.shuxing}}</text>
+        <image class="goods-del-icon" data-key="{{item.sckey}}" bindtap="delGoods" src="/images/del.png"></image>
+      </view>
+      <view class="goods-item-price-bar">
+        <text class="goods-item-price">￥{{item.goodslist.salesprice}}</text>
+        <view class="goods-num">
+          <text bindtap="{{item[1]>1?'jian':''}}" data-item="{{item}}" data-idx="{{index}}">-</text>
+          <text>{{item[1]}}</text>
+          <text bindtap="jia" data-item="{{item}}" data-idx="{{index}}">+</text>
+        </view>
+        <text>{{item.goodslist.danwei}}</text>
+      </view>
+    </view>
+  </view>
+  </block>
+  <view class="tishi" wx:else>您还的购物车没有商品哦！</view>
+  <!-- 客服微信 -->
+  <view class="wx-customer">
+    <image mode="widthFix" src="/images/gzhewm.jpg"></image>
+  </view>
+  <view class="bottom-nav-bar">
+    <text bindtap="goLogin">登录</text>
+    <text>注册</text>
+    <text bindtap="goMessage">在线留言</text>
+    <text bindtap="goTop">回到顶部</text>
+  </view>
+  <view class="dilan" wx:if="{{goodslist.length>0}}">
+    <view class="dilan-text">合计：<text>{{totalprice}}</text></view>
+    <view class="dilan-btn" bindtap="goJisuan">结算</view>
+  </view>
+</view>

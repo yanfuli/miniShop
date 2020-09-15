@@ -1,0 +1,17 @@
+<!--pages/tishi/tishi.wxml-->
+<view class="container">
+  <view class="tishi-img">
+    <!-- <image mode="widthFix" src="/images/tishi.jpg"></image> -->
+    <rich-text nodes="{{imgSrc}}"></rich-text>
+  </view>
+  <!-- 客服微信 -->
+  <view class="wx-customer">
+    <image mode="widthFix" src="/images/gzhewm.jpg"></image>
+  </view>
+  <view class="bottom-nav-bar">
+    <text bindtap="goLogin">登录</text>
+    <text>注册</text>
+    <text bindtap="goMessage">在线留言</text>
+    <text bindtap="goTop">回到顶部</text>
+  </view>
+</view>

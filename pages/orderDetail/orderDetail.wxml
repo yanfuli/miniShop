@@ -1,0 +1,24 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class="container">
+  <view class="order-detail">
+    <view class="order-top" wx:for="{{allData.orderrow.shopincart}}" wx:key="goods">
+      <image src="{{imgUrl + item.goodsinfo.picurl}}"></image>
+      <view class="order-top-right">
+        <view class="order-title">{{item.goodsinfo.title}}</view>
+        <view class="order-color">{{item.goodsinfo[2]}}</view>
+        <view class="order-num">
+          <text>￥{{item[4]}}</text>
+          <text>×{{item[1]}}{{item.goodsinfo.danwei}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="order-info">订单编号：{{allData.orderrow.ordernum}}</view>
+    <view class="order-info">收货人：{{allData.orderrow.truename}}</view>
+    <view class="order-info">联系电话：{{allData.orderrow.telephone}}</view>
+    <view class="order-info">送货地址：{{allData.orderrow.address}}</view>
+    <view class="order-info">配送方式：{{allData.orderrow.getmode}}</view>
+    <view class="order-info">付款方式：{{allData.orderrow.paymode}}</view>
+  </view>
+  <view class="order-price">{{allData.xianshi}}</view>
+  <navigator open-type="navigateBack" class="back-btn">返回</navigator>
+</view>

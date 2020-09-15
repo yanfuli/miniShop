@@ -1,0 +1,31 @@
+<!--pages/myOrder/myOrder.wxml-->
+<view class="container">
+  <block wx:if="{{orderList.length>0}}">
+    <view class="order-item" wx:for="{{orderList}}" wx:key="order">
+      <view class="order-text">
+        <text>订单编号：</text>
+        <text>{{item.ordernum}}</text>
+      </view>
+      <view class="order-text">
+        <text>订单时间：</text>
+        <text>{{item.posttime}}</text>
+      </view>
+      <view class="order-text">
+        <text>订单状态：</text>
+        <text>{{item.statusinfo}}</text>
+      </view>
+      <view class="xq-btn" bindtap="goDetail" data-id="{{item.id}}">查看详情</view>
+    </view>
+  </block>
+  <view class="tishi" wx:else>您还没有订单哦！</view>
+  <!-- 客服微信 -->
+  <view class="wx-customer">
+    <image mode="widthFix" src="/images/gzhewm.jpg"></image>
+  </view>
+  <view class="bottom-nav-bar">
+    <text bindtap="goLogin">登录</text>
+    <text>注册</text>
+    <text bindtap="goMessage">在线留言</text>
+    <text bindtap="goTop">回到顶部</text>
+  </view>
+</view>

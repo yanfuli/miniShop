@@ -1,0 +1,9 @@
+/* pages/settlement/settlement.wxss */
+.tishi-img{
+  width: 700rpx;
+  height: auto;
+  overflow: hidden;
+}
+.tishi-img image{
+  width: 100%;
+}

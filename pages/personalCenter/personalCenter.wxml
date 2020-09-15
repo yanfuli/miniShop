@@ -1,0 +1,68 @@
+<!--pages/personalCenter/personalCenter.wxml-->
+<view class="container">
+  <view class="personal-info">
+    <view class="header-img">
+      <image src="{{imgUrl + allData.picurl}}"></image>
+    </view>
+    <view class="user-info">
+      <text class="user-name">{{allData.username}}</text>
+      <rich-text nodes="{{allData.usergroup}}"></rich-text>
+    </view>
+    <navigator url="/pages/updatePsw/updatePsw" class="edit-personal">
+      <text>修改资料</text>
+      <image src="/images/arrow-right.png"></image>
+    </navigator>
+  </view>
+  <navigator url="/pages/myCollection/myCollection" class="nav-bar">
+    <view class="nav-bar-title">
+      <image src="/images/people1.png"></image>
+      <text>我的收藏</text>
+    </view>
+    <image class="nav-bar-icon" src="/images/arrow-right.png"></image>
+  </navigator>
+  <navigator class="nav-bar">
+    <view class="nav-bar-title">
+      <image src="/images/people2.png"></image>
+      <text>我的评论</text>
+    </view>
+    <image class="nav-bar-icon" src="/images/arrow-right.png"></image>
+  </navigator>
+  <navigator url="/pages/myMessage/myMessage" class="nav-bar">
+    <view class="nav-bar-title">
+      <image src="/images/people3.png"></image>
+      <text>我的留言</text>
+    </view>
+    <image class="nav-bar-icon" src="/images/arrow-right.png"></image>
+  </navigator>
+  <navigator url="/pages/myOrder/myOrder" class="nav-bar">
+    <view class="nav-bar-title">
+      <image src="/images/people4.png"></image>
+      <text>我的订单</text>
+    </view>
+    <image class="nav-bar-icon" src="/images/arrow-right.png"></image>
+  </navigator>
+  <navigator url="/pages/updatePsw/updatePsw" class="nav-bar">
+    <view class="nav-bar-title">
+      <image src="/images/people6.png"></image>
+      <text>我的密码</text>
+    </view>
+    <image class="nav-bar-icon" src="/images/arrow-right.png"></image>
+  </navigator>
+  <navigator url="/pages/helpCenter/helpCenter" class="nav-bar">
+    <view class="nav-bar-title">
+      <image src="/images/people7.png"></image>
+      <text>帮助中心</text>
+    </view>
+    <image class="nav-bar-icon" src="/images/arrow-right.png"></image>
+  </navigator>
+  <!-- 客服微信 -->
+  <view class="wx-customer">
+    <image mode="widthFix" src="/images/gzhewm.jpg"></image>
+  </view>
+  <view class="bottom-nav-bar">
+    <text bindtap="goLogin">登录</text>
+    <text>注册</text>
+    <text bindtap="goMessage">在线留言</text>
+    <text bindtap="goTop">回到顶部</text>
+  </view>
+</view>

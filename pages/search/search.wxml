@@ -1,0 +1,70 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="search-box">
+      <input placeholder="请输入要查询的商品信息" bindconfirm="bindSearch" bindinput="getValue" confirm-type="search" value="{{val}}"></input>
+      <image src="/images/mirror.png" bindtap="bindSearch"></image>
+    </view>
+    <view class="search-del" bindtap="quxiao">取消</view>
+  </view>
+  <view class="paixu">
+    <view class="paixu-title">排序:</view>
+    <view class="paixu-box">
+      <view class="paixu-item" bindtap="liulan"  data-order="hits" data-idx="1">
+        <text class="{{idx==1?'text-active':''}}">浏览次数</text>
+        <view class="up {{idx==1&&aaa==2?'icon-active':'icon'}}"></view>
+        <view class="down {{idx==1&&aaa==1?'icon-active':'icon'}}"></view>
+      </view>
+      <view class="paixu-item" bindtap="guanzhu"  data-order="gzd" data-idx="2">
+        <text class="{{idx==2?'text-active':''}}">关注指数</text>
+        <view class="up {{idx==2&&aaa==2?'icon-active':'icon'}}"></view>
+        <view class="down {{idx==2&&aaa==1?'icon-active':'icon'}}"></view>
+      </view>
+      <view class="paixu-item" bindtap="jiage" data-order="salesprice" data-idx="3">
+        <text class="{{idx==3?'text-active':''}}">优批价格</text>
+        <view class="up {{idx==3&&aaa==2?'icon-active':'icon'}}"></view>
+        <view class="down {{idx==3&&aaa==1?'icon-active':'icon'}}" ></view>
+      </view>
+      <view class="paixu-item" bindtap="kucun" data-order="kczt" data-idx="4">
+        <text class="{{idx==4?'text-active':''}}">库存状态</text>
+        <view class="up {{idx==4&&aaa==2?'icon-active':'icon'}}"></view>
+        <view class="down {{idx==4&&aaa==1?'icon-active':'icon'}}"></view>
+      </view>
+    </view>
+  </view>
+  <!-- 热门 -->
+  <view class="hot-search">
+    <view class="hot-title">热门搜索：</view>
+    <view class="hot-box">
+      <view class="hot-item" wx:for="{{hotlist}}" wx:key="hot" bindtap="bindHot" data-keyword="{{item}}">{{item}}</view>
+    </view>
+  </view>
+  <!-- 商品 -->
+  <view class="goods-list">
+    <view class="goods-item" wx:for="{{goodslist}}" wx:key="goods" bindtap="goDetail" data-id="{{item.id}}" data-tid="{{item.typeid}}">
+      <image class="goods-pic" src="{{imgUrl + item.picurl}}"></image>
+      <view class="goods-title">{{item.title}}</view>
+      <view class="item-bottom">
+        <view style="color:blue" wx:if="{{idx==1}}">浏览{{item.hits}}次</view>
+        <view style="color:blue" wx:if="{{idx==2}}">{{item.xianshi}}</view>
+        <view style="color:blue" wx:if="{{idx==4}}">{{item.xianshi}}</view>
+        <view class="price">
+          <text>￥</text>
+          <text>{{item.salesprice}}</text>
+        </view>
+        <image class="shopping-car" src="/images/car.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="jilu">共1页{{goodslist.length}}条记录</view>
+  <!-- 客服微信 -->
+  <view class="wx-customer">
+    <image mode="widthFix" src="/images/gzhewm.jpg"></image>
+  </view>
+  <view class="bottom-nav-bar">
+    <text bindtap="goLogin">登录</text>
+    <text bindtap="goZhuce">注册</text>
+    <text bindtap="goMessage">在线留言</text>
+    <text bindtap="goTop">回到顶部</text>
+  </view>
+</view>

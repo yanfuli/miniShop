@@ -1,0 +1,21 @@
+<!--pages/classify/classify.wxml-->
+<view class="container">
+  <view class="classify-box">
+    <view class="classify-left">
+      <view class="classify-left-item {{idx==index?'active':''}}" wx:for="{{goodstype}}" wx:key="left" bindtap="bindItem" data-idx="{{index}}"> {{item}} </view>
+    </view>
+    <view class="classify-right">
+      <view class="classify-right-item" wx:for="{{goodstypelist[idx]}}" wx:key="right" bindtap="goList" data-item="{{item}}">{{item.classname}}</view>
+    </view>
+  </view>
+    <!-- 客服微信 -->
+  <view class="wx-customer">
+    <image mode="widthFix" src="/images/gzhewm.jpg"></image>
+  </view>
+  <view class="bottom-nav-bar">
+    <text bindtap="goLogin">登录</text>
+    <text>注册</text>
+    <text bindtap="goMessage">在线留言</text>
+    <text bindtap="goTop">回到顶部</text>
+  </view>
+</view>

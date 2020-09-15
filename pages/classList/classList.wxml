@@ -1,0 +1,95 @@
+<!--pages/classList/classList.wxml-->
+<view class="container">
+  <scroll-view scroll-x="true" class="scroll-view-x" style="padding-top:10rpx" scroll-with-animation="true"  scroll-left='0'>
+  <!--内容区域-->
+  <view class="scroll-item {{tidx==index?'active':''}}" wx:for="{{goodstype}}" wx:key="goodstype" bindtap="bindType" data-tidx="{{index}}">{{item}}</view>
+  </scroll-view >
+  <!-- 下拉弹窗 -->
+  <view class="select-box" hidden="{{typeFlag}}">
+    <view class="select-option" wx:for="{{goodstypelist}}" wx:key="typelist" bindtap="bindOption" data-tid="{{item.id}}" data-pid="{{item.parentid}}">{{item.classname}}</view>
+  </view>
+  <view class="paixu" wx:if="{{fenleiname}}">
+    <view class="paixu-title">分类:</view>
+    <view class="paixu-box">
+      <view class="paixu-item">{{fenleiname}}</view>
+    </view>
+  </view>
+  <view class="paixu">
+    <view class="paixu-title">品牌:</view>
+    <view class="paixu-box">
+      <view class="paixu-item {{pinpai==item.id?'text-active':''}}" wx:for="{{pinpainame}}" wx:key="pinpai" bindtap="bindPinpai" data-ppid="{{item.id}}">{{item.classname}}</view>
+    </view>
+  </view>
+  <view class="paixu">
+    <view class="paixu-title">排序:</view>
+    <view class="paixu-box">
+      <view class="paixu-item" bindtap="liulan"  data-order="hits" data-idx="1">
+        <text class="{{idx==1?'text-active':''}}">浏览次数</text>
+        <view class="up {{idx==1&&aaa==2?'icon-active':'icon'}}"></view>
+        <view class="down {{idx==1&&aaa==1?'icon-active':'icon'}}"></view>
+      </view>
+      <view class="paixu-item" bindtap="guanzhu"  data-order="gzd" data-idx="2">
+        <text class="{{idx==2?'text-active':''}}">关注指数</text>
+        <view class="up {{idx==2&&aaa==2?'icon-active':'icon'}}"></view>
+        <view class="down {{idx==2&&aaa==1?'icon-active':'icon'}}"></view>
+      </view>
+      <view class="paixu-item" bindtap="jiage" data-order="salesprice" data-idx="3">
+        <text class="{{idx==3?'text-active':''}}">优批价格</text>
+        <view class="up {{idx==3&&aaa==2?'icon-active':'icon'}}"></view>
+        <view class="down {{idx==3&&aaa==1?'icon-active':'icon'}}" ></view>
+      </view>
+      <view class="paixu-item" bindtap="kucun" data-order="kczt" data-idx="4">
+        <text class="{{idx==4?'text-active':''}}">库存状态</text>
+        <view class="up {{idx==4&&aaa==2?'icon-active':'icon'}}"></view>
+        <view class="down {{idx==4&&aaa==1?'icon-active':'icon'}}"></view>
+      </view>
+    </view>
+  </view>
+  <!-- 商品 -->
+  <view class="goods-list">
+    <view class="goods-item" wx:for="{{goodslist}}" wx:key="goods" bindtap="goDetail" data-id="{{item.id}}" data-tid="{{item.typeid}}">
+      <image class="goods-pic" src="{{imgUrl + item.picurl}}"></image>
+      <view class="goods-title">{{item.title}}</view>
+      <view class="item-bottom">
+        <view style="color:blue" wx:if="{{idx==1}}">浏览{{item.hits}}次</view>
+        <view style="color:blue" wx:if="{{idx==2}}">{{item.xianshi}}</view>
+        <view style="color:blue" wx:if="{{idx==4}}">{{item.xianshi}}</view>
+        <view class="price">
+          <text>￥</text>
+          <text>{{item.salesprice}}</text>
+        </view>
+        <image class="shopping-car" mode="widthFix" src="/images/car.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="fenye" wx:if="{{maxPage>1}}">
+    <text bindtap="goBefore">上一页</text>
+    <block wx:if="{{page<7}}">
+    <text class="{{index==page-1?'active':''}}" wx:for="{{pageNum}}" wx:key="num" wx:if="{{maxPage>=index+1}}" bindtap="getPage" data-page="{{item}}">{{item}}</text>
+    <text wx:if="{{maxPage>7}}">...</text>
+    </block>
+    <block wx:if="{{page>=7}}">
+    <text>...</text>
+    <text class="{{pageIdx==page-3?'active':''}}" bindtap="getPage" data-page="{{page-3}}">{{page-3}}</text>
+    <text class="{{pageIdx==page-2?'active':''}}" bindtap="getPage" data-page="{{page-2}}">{{page-2}}</text>
+    <text class="{{pageIdx==page-1?'active':''}}" bindtap="getPage" data-page="{{page-1}}">{{page-1}}</text>
+    <text class="{{pageIdx==page?'active':''}}" bindtap="getPage" data-page="{{page}}">{{page}}</text>
+    <text class="{{pageIdx==page1?'active':''}}" bindtap="getPage" data-page="{{page1}}">{{page1}}</text>
+    <text class="{{pageIdx==page2?'active':''}}" bindtap="getPage" data-page="{{page2}}">{{page2}}</text>
+    <text class="{{pageIdx==page3?'active':''}}" bindtap="getPage" data-page="{{page3}}" wx:if="{{maxPage>=page1}}">{{page3}}</text>
+    <text wx:if="{{maxPage>page+3}}">...</text>
+    </block>
+    <text bindtap="goNext">下一页</text>
+  </view>
+  <view class="fenye" wx:else style="color:#333333;font-size:24rpx;">共1页{{goodslist.length}}条记录</view>
+      <!-- 客服微信 -->
+  <view class="wx-customer">
+    <image mode="widthFix" src="/images/gzhewm.jpg"></image>
+  </view>
+  <view class="bottom-nav-bar">
+    <text bindtap="goLogin">登录</text>
+    <text>注册</text>
+    <text bindtap="goMessage">在线留言</text>
+    <text bindtap="goTop">回到顶部</text>
+  </view>
+</view>

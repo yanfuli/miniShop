@@ -1,0 +1,102 @@
+<view class="container">
+  <view class="header">
+    <view class="header-text">
+      <text wx:if="{{!uid}}" bindtap="goLogin">登录</text>
+      <block wx:else>
+        <text bindtap="goWode">会员中心 </text>
+        <text bindtap="tuichu"> [退出]</text>
+      </block>
+    </view>
+    <image class="logo-img" src="/images/logo.png"></image>
+    <image class="search-icon" src="/images/mirror.png" bindtap="goSearch"></image>
+  </view>
+  <swiper class="banner" autoplay="true" circular="true" indicator-dots="true" indicator-active-color="#d34244">
+    <swiper-item wx:for="{{allData.picurl}}" wx:key="pic">
+      <image src="{{imgUrl + item.imgurl}}"></image>
+    </swiper-item>
+  </swiper>
+  <!-- 电话 -->
+  <view class="tel-box">
+    <image src="/images/i_tel.png"></image>
+    <text>服务热线：0431-82774070/82775779</text>
+  </view>
+  <!-- 页面nav模块 -->
+  <view class="nav-box">
+    <view bindtap="goClassify" class="nav-item">
+      <image src="/images/nav1.png"></image>
+      <text>全部商品</text>
+    </view>
+    <view bindtap="goNewTui" class="nav-item">
+      <image src="/images/nav2.png"></image>
+      <text>新品推荐</text>
+    </view>
+    <view bindtap="goNewSu" class="nav-item">
+      <image src="/images/nav3.png"></image>
+      <text>新品速递</text>
+    </view>
+    <view bindtap="goHistory" class="nav-item">
+      <image src="/images/nav4.png"></image>
+      <text>浏览历史</text>
+    </view>
+    <view bindtap="goCollection" class="nav-item">
+      <image src="/images/nav5.png"></image>
+      <text>我的收藏</text>
+    </view>
+    <view bindtap="goTishi" class="nav-item">
+      <image src="/images/nav6.png"></image>
+      <text>温馨提示</text>
+    </view>
+    <view bindtap="goLiucheng" class="nav-item">
+      <image src="/images/nav7.png"></image>
+      <text>购物流程</text>
+    </view>
+    <view bindtap="goPeisong" class="nav-item">
+      <image src="/images/nav8.png"></image>
+      <text>配送服务</text>
+    </view>
+    <view bindtap="goJiesuan" class="nav-item">
+      <image src="/images/nav9.png"></image>
+      <text>消费结算</text>
+    </view>
+    <view bindtap="goOrder" class="nav-item">
+      <image src="/images/nav10.png"></image>
+      <text>我的订单</text>
+    </view>
+  </view>
+  <view class="gonggao">
+    <view class="gonggao-title">【商家公告】</view>
+      <view class="marquee_container" style="--marqueeWidth--:-12em">
+        <view class="marquee_text">{{allData.intro}}</view>
+    </view>
+  </view>
+  <!-- 商品分类 -->
+  <view class="tab-box">
+    <view class="tab-item {{idx==index?'active-tab':''}}" wx:for="{{allData.typename}}" wx:key="type" bindtap="bindType" data-idx="{{index}}" data-id="{{item.id}}">{{item.classname}}</view>
+  </view>
+  <!-- 商品 -->
+  <view class="goods-list">
+    <view class="goods-item" wx:for="{{allData.goodslist[idx+1]}}" wx:key="goods" bindtap="goDetail" data-id="{{item.id}}" data-tid="{{item.typeid}}">
+      <image class="goods-pic" src="{{imgUrl + item.picurl}}"></image>
+      <view class="goods-title">{{item.title}}</view>
+      <view class="item-bottom">
+        <view>浏览{{item.hits}}次</view>
+        <view class="price">
+          <text>￥</text>
+          <text>{{item.salesprice}}</text>
+        </view>
+        <image class="shopping-car" src="/images/car.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="more-bar" bindtap="goClassList">查看更多 >> </view>
+  <!-- 客服微信 -->
+  <view class="wx-customer">
+    <image mode="widthFix" src="/images/gzhewm.jpg"></image>
+  </view>
+  <view class="bottom-nav-bar">
+    <text bindtap="goLogin">登录</text>
+    <text bindtap="goZhuce">注册</text>
+    <text bindtap="goMessage">在线留言</text>
+    <text bindtap="goTop">回到顶部</text>
+  </view>
+</view>

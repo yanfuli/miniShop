@@ -1,0 +1,28 @@
+<!--pages/browsHistory/browsHistory.wxml-->
+<view class="container">
+    <view class="goods-list">
+    <view class="goods-item" wx:for="{{allData}}" wx:key="goods">
+      <image class="goods-pic" src="{{imgUrl + item.picurl}}"  bindtap="goDetail" data-id="{{item.id}}" data-tid="{{item.typeid}}"></image>
+      <view class="goods-title">{{item.title}}</view>
+      <view class="item-bottom">
+        <view>浏览{{item.hits}}次</view>
+        <view class="price">
+          <text>￥</text>
+          <text>{{item.salesprice}}</text>
+        </view>
+        <image class="shopping-car" src="/images/del.png" bindtap="dindDel" data-id="{{item.id}}"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 客服微信 -->
+  <view class="wx-customer">
+    <image mode="widthFix" src="/images/gzhewm.jpg"></image>
+  </view>
+  <view class="bottom-nav-bar">
+    <text bindtap="goLogin">登录</text>
+    <text>注册</text>
+    <text bindtap="goMessage">在线留言</text>
+    <text bindtap="goTop">回到顶部</text>
+  </view>
+</view>

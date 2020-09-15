@@ -1,0 +1,58 @@
+<!--pages/jiesuan/jiesuan.wxml-->
+<view class="container">
+  <form bindsubmit="formSub">
+    <view class="inp-box">
+      <text>收货人：</text>
+      <input name="truename" value="{{truename}}"></input>
+      <text class="xing">*</text>
+    </view>
+    <view class="inp-box">
+      <text>手机号：</text>
+      <input type="number" maxlength="11" name="telephone" value="{{telephone}}"></input>
+      <text class="xing">*</text>
+    </view>
+    <view class="inp-box">
+      <text>收货地址：</text>
+      <input name="address" value="{{address}}"></input>
+    </view>
+    <image class="line" src="/images/line.jpg"></image>
+    <!--下拉框  -->
+    <view class="inp-box">
+      <text>结算方式：</text>
+      <view class='select-box' bindtap='bindShowHuo'>
+        <text>{{huodao}}</text>
+        <text>▼</text>
+      </view>
+      <!-- 下拉需要显示的列表 -->
+      <view class="option_box" wx:if="{{huoFlag}}">
+        <view class="select_one select-active" bindtap="bindHuo" data-name="现金结算">现金结算</view>
+        <view class="select_one" bindtap="bindHuo" data-name="支票转账">易扫码支付</view>
+        <view class="select_one" bindtap="bindHuo" data-name="银联转账">银联转账</view>
+        <view class="select_one" bindtap="bindHuo" data-name="微信红包">微信红包</view>
+        <view class="select_one" bindtap="bindHuo" data-name="支付宝">支付宝</view>
+      </view>
+    </view>
+
+    <view class="inp-box">
+      <text>配送方式：</text>
+      <view class='select-box' bindtap='bindShowPei'>
+        <text>{{peisong}}</text>
+        <text>▼</text>
+      </view>
+      <!-- 下拉需要显示的列表 -->
+      <view class="option_box" wx:if="{{peiFlag}}">
+        <view class="select_one" bindtap="bindPei" data-name="平台配送">平台配送</view>
+        <view class="select_one" bindtap="bindPei" data-name="买家自提">买家自提</view>
+
+      </view>
+    </view>
+    <view class="textarea-box">
+      <text>备注：</text>
+      <textarea name="buyremark"></textarea>
+    </view>
+    <view class="dilan">
+    <view class="dilan-text">加盟参考总价：<text>{{totalprice}}</text></view>
+    <button class="dilan-btn" form-type="submit">提交订单</button>
+  </view>
+  </form>
+</view>

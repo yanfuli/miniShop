@@ -1,0 +1,74 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/zhuce/zhuce",
+    "pages/helpDetail/helpDetail",
+    "pages/jiesuan/jiesuan",
+    "pages/orderDetail/orderDetail",
+    "pages/myOrder/myOrder",
+    "pages/shoppingCar/shoppingCar",
+    "pages/classify/classify",
+    "pages/classList/classList",
+    "pages/newGoodsSu/newGoodsSu",
+    "pages/newGoodsTui/newGoodsTui",
+    "pages/message/message",
+    "pages/myMessage/myMessage",
+    "pages/personalCenter/personalCenter",
+    "pages/updatePsw/updatePsw",
+    "pages/retrievePassword/retrievePassword",
+    "pages/login/login",
+    "pages/search/search",
+    "pages/helpCenter/helpCenter",
+    "pages/settlement/settlement",
+    "pages/distribution/distribution",
+    "pages/liucheng/liucheng",
+    "pages/tishi/tishi",
+    "pages/myCollection/myCollection",
+    "pages/browsHistory/browsHistory",
+    "pages/goodsDetail/goodsDetail",
+    "pages/customerService/customerService"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "得展良品",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#d34244",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/footer1.png",
+      "selectedIconPath": "images/footer1.png"
+    },
+    {
+      "pagePath": "pages/classify/classify",
+      "text": "分类",
+      "iconPath": "images/footer2.png",
+      "selectedIconPath": "images/footer2.png"
+    },
+    {
+      "pagePath": "pages/shoppingCar/shoppingCar",
+      "text": "购物车",
+      "iconPath": "images/footer3.png",
+      "selectedIconPath": "images/footer3.png"
+    },
+    {
+      "pagePath": "pages/personalCenter/personalCenter",
+      "text": "个人中心",
+      "iconPath": "images/footer4.png",
+      "selectedIconPath": "images/footer4.png"
+    },
+    {
+      "pagePath": "pages/customerService/customerService",
+      "text": "客服",
+      "iconPath": "images/footer5.png",
+      "selectedIconPath": "images/footer5.png"
+    }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,31 @@
+<!--pages/myCollection/myCollection.wxml-->
+<view class="container">
+  <view class="head-top">
+    <view bindtap="allSelect">全部</view>
+    <view bindtap="delCollection">删除</view>
+  </view>
+  <checkbox-group bindchange="getCheck">
+    <view class="list-item" wx:for="{{allData}}" wx:key="goods" >
+      <checkbox value="{{item.id}}" checked="{{item.check}}"></checkbox>
+      <image src="{{imgUrl+ item.picurl}}" bindtap="goDetail" data-id="{{item.id}}"></image>
+      <view class="goods-info" bindtap="goDetail" data-id="{{item.id}}">
+        <view class="goods-title">{{item.title}}</view>
+        <view class="goods-price">￥{{item.salesprice}}</view>
+      </view>
+    </view>
+  </checkbox-group>
+  <view class="collect-num">共1页{{count}}条记录</view>
+  <!-- 客服微信 -->
+  <view class="wx-customer">
+    <image mode="widthFix" src="/images/gzhewm.jpg"></image>
+  </view>
+  <view class="bottom-nav-bar">
+    <text bindtap="goLogin">登录</text>
+    <text>注册</text>
+    <text bindtap="goMessage">在线留言</text>
+    <text bindtap="goTop">回到顶部</text>
+  </view>
+
+</view>
+
+

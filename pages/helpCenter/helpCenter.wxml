@@ -1,0 +1,63 @@
+<!--pages/helpCenter/helpCenter.wxml-->
+<view class="container">
+  <view class="nav-box">
+    <navigator url="/pages/tishi/tishi" class="nav-item">
+      <image src="/images/bgpic1.jpg"></image>
+    </navigator>
+    <navigator url="/pages/helpDetail/helpDetail?id=31" class="nav-item">
+      <image src="/images/bgpic2.jpg"></image>
+    </navigator>
+    <navigator url="/pages/helpDetail/helpDetail?id=32" class="nav-item">
+      <image src="/images/bgpic3.jpg"></image>
+    </navigator>
+    <navigator url="/pages/helpDetail/helpDetail?id=33" class="nav-item">
+      <image src="/images/bgpic4.jpg"></image>
+    </navigator>
+    <navigator url="/pages/newGoodsTui/newGoodsTui" class="nav-item">
+      <image src="/images/bgpic5.jpg"></image>
+    </navigator>
+    <navigator url="/pages/distribution/distribution" class="nav-item">
+      <image src="/images/bgpic6.jpg"></image>
+    </navigator>
+    <navigator url="/pages/helpDetail/helpDetail?id=36" class="nav-item">
+      <image src="/images/bgpic7.jpg"></image>
+    </navigator>
+    <navigator url="/pages/helpDetail/helpDetail?id=37" class="nav-item">
+      <image src="/images/bgpic8.jpg"></image>
+    </navigator>
+    <navigator url="/pages/helpDetail/helpDetail?id=38" class="nav-item">
+      <image src="/images/bgpic9.jpg"></image>
+    </navigator>
+    <navigator url="/pages/settlement/settlement" class="nav-item">
+      <image src="/images/bgpic10.jpg"></image>
+    </navigator>
+    <navigator url="/pages/helpDetail/helpDetail?id=40" class="nav-item">
+      <image src="/images/bgpic11.jpg"></image>
+    </navigator>
+    <navigator url="/pages/helpDetail/helpDetail?id=41" class="nav-item">
+      <image src="/images/bgpic12.jpg"></image>
+    </navigator>
+    <navigator url="/pages/liucheng/liucheng" class="nav-item">
+      <image src="/images/bgpic13.jpg"></image>
+    </navigator>
+    <navigator url="/pages/helpDetail/helpDetail?id=43" class="nav-item">
+      <image src="/images/bgpic14.jpg"></image>
+    </navigator>
+    <navigator url="/pages/helpDetail/helpDetail?id=44" class="nav-item">
+      <image src="/images/bgpic15.jpg"></image>
+    </navigator>
+    <navigator url="/pages/helpDetail/helpDetail?id=45" class="nav-item">
+      <image src="/images/bgpic16.jpg"></image>
+    </navigator>
+  </view>
+  <!-- 客服微信 -->
+  <view class="wx-customer">
+    <image mode="widthFix" src="/images/gzhewm.jpg"></image>
+  </view>
+  <view class="bottom-nav-bar">
+    <text bindtap="goLogin">登录</text>
+    <text>注册</text>
+    <text bindtap="goMessage">在线留言</text>
+    <text bindtap="goTop">回到顶部</text>
+  </view>
+</view>

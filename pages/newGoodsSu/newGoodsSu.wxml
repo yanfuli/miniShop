@@ -1,0 +1,25 @@
+<!--pages/newGoodsSu/newGoodsSu.wxml-->
+  <view class="goods-list">
+    <view class="goods-item" wx:for="{{allData}}" wx:key="goods" bindtap="goDetail" data-id="{{item.id}}" data-tid="{{item.typeid}}">
+      <image class="goods-pic" src="{{imgUrl + item.picurl}}"></image>
+      <view class="goods-title">{{item.title}}</view>
+      <view class="item-bottom">
+        <view>浏览{{item.hits}}次</view>
+        <view class="price">
+          <text>￥</text>
+          <text>{{item.salesprice}}</text>
+        </view>
+        <image class="shopping-car" src="/images/car.png"></image>
+      </view>
+    </view>
+  </view>
+    <!-- 客服微信 -->
+  <view class="wx-customer">
+    <image mode="widthFix" src="/images/gzhewm.jpg"></image>
+  </view>
+  <view class="bottom-nav-bar">
+    <text bindtap="goLogin">登录</text>
+    <text bindtap="goZhuce">注册</text>
+    <text bindtap="goMessage">在线留言</text>
+    <text bindtap="goTop">回到顶部</text>
+  </view>

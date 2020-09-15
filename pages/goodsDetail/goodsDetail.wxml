@@ -1,0 +1,173 @@
+<!--pages/goodsDetail/goodsDetail.wxml-->
+<import src="../../libs/wxParse/wxParse.wxml"/>
+<view class="container">
+  <view class="header-detail">
+    <text>{{allData.tlt1.classname}}>{{allData.tit2.classname}}</text>
+    <text bindtap="goShouye">首页</text>
+  </view>
+  <view class="banner-box">
+  <swiper class="banner" autoplay="true" circular="true" bindchange="getCurrent">
+    <swiper-item wx:for="{{allData.goodsshow.picarr}}" wx:key="pic">
+      <image src="{{imgUrl + item}}"></image>
+    </swiper-item>
+  </swiper>
+  <view class="swiper-num">{{current+1}}/{{allData.goodsshow.picarr.length}}</view>
+  </view>
+  <view class="goods-title">{{allData.goodsshow.title}}</view>
+  <view class="goods-small-title">{{allData.goodsshow.dianhua}}</view>
+
+  <view class="goods-info-box">
+    <view class="goods-info-item goods-price" wx:if="{{expval==0||expval==6000||expval==10||expval==8888||expval==9999}}">
+      <text>优批价格：</text>
+      <text>￥{{allData.goodsshow.salesprice}}</text>
+      <text>/{{allData.goodsshow.danwei}}</text>
+    </view>
+    <view class="goods-price goods-info-item" wx:if="{{expval==8000||expval==9999}}">
+      <text>大商参考：</text>
+      <text>￥{{allData.goodsshow.vipsprice}}</text>
+      <text>/{{allData.goodsshow.danwei}}</text>
+    </view>
+    <view class="goods-price goods-info-item"  wx:if="{{expval==1000||expval==8888||expval==9999}}">
+      <text>加盟参考：</text>
+      <text>￥{{allData.goodsshow.salesprice}}</text>
+      <text>/{{allData.goodsshow.danwei}}</text>
+    </view>
+    <view class="goods-stock goods-info-item">
+      <text>库存状态：{{allData.goodsshow.kucunzt}}</text>
+    </view>
+    <view class="goods-star goods-info-item">
+      <text>推荐指数：</text>
+      <text>{{allData.goodsshow.xianshi}}</text>
+    </view>
+    <view class="goods-visits-num goods-info-item">
+      <text>浏览次数：{{allData.goodsshow.hits}}次</text>
+    </view>
+    <view class="goods-commodity-num goods-info-item">
+      <text>商品编号：{{allData.goodsshow.orderid}}</text>
+    </view>
+    <view class="goods-related-info goods-info-item">
+      <text>相关信息：</text>
+      <view class="xg-box"  wx:if="{{expval==0||expval==10||expval==6000||expval==8888||expval==9999}}">
+        <text>{{allData.goodsshow.description1}}</text>
+        <text>学生文具满100元包邮，办公用品200元包邮</text>
+      </view>
+      <view class="xg-box" wx:else>{{allData.goodsshow.description1}}</view>
+    </view>
+    <view class="goods-price goods-info-item" wx:if="{{expval==0||expval==10||expval==6000}}">
+      <text>优惠政策：</text>
+      <text style="color:blue">{{allData.goodsshow.goodcgid}}</text>
+    </view>
+    <view class="goods-select-color goods-info-item">
+      <text>{{allData.goodsshow.attrstrinfo[0].attrname}}：</text>
+      <view class="color-box">
+      <view class="color-item {{coloridx == index?'active-color':''}}" wx:for="{{colorArr}}" wx:key="color" bindtap="selectColor" data-coloridx = "{{index}}" data-title="{{item}}" data-tapidx="{{idx}}">
+        <text>{{item}}</text>
+        <image mode="widthFix" wx:if="{{coloridx == index}}" src="/images/pro_color_bg.png"></image>
+      </view> 
+      </view>
+    </view>
+    <view class="goods-select-color goods-info-item" wx:if="{{allData.goodsshow.attrstrinfo[1]}}">
+      <text>{{allData.goodsshow.attrstrinfo[1].attrname}}：</text>
+      <view class="color-box">
+      <view class="color-item {{biidx == index?'active-color':''}}" wx:for="{{bijianArr}}" wx:key="bijian" bindtap="selectBijian" data-biidx = "{{index}}" data-title="{{item}}" data-tapidx="{{idx}}">
+        <text>{{item}}</text>
+        <image mode="widthFix" wx:if="{{biidx == index}}" src="/images/pro_color_bg.png"></image>
+      </view> 
+      </view>
+    </view>
+    <view class="goods-edition goods-info-item">
+      <text>版本选择：</text>
+      <view  class="color-box">
+      <view  class="color-item {{banidx == index?'active-color':''}}" wx:for="{{allData.goodsshow.banben}}" wx:key="banben"bindtap="selectban" data-banidx = "{{index}}" data-title="{{item.title}}" data-gourl="{{item.gourl}}">
+        <text>{{item.title}}</text>
+        <image mode="widthFix" wx:if="{{banidx == index}}" src="/images/pro_color_bg.png"></image>
+      </view>
+        
+      </view>
+      
+    </view>
+    <view class="goods-info-item">
+      <text decode="nbsp">数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：</text>
+      <view class="pay-num-box">
+        <text bindtap="jian" data-num="{{num}}" class="jian">-</text>
+        <text class="num">{{num}}</text>
+        <text  bindtap="jia" data-num="{{num}}" class="jia">+</text>
+      </view>
+    </view>
+  </view>
+  <view class="goods-tab-box">
+    <view class="tab-item {{idx==1?'active-tab':''}}" bindtap="bindTab" data-idx = "1">商品介绍</view>
+    <view class="tab-item {{idx==2?'active-tab':''}}" bindtap="bindTab" data-idx = "2">支付和配送</view>
+    <view class="tab-item {{idx==3?'active-tab':''}}" bindtap="bindTab" data-idx = "3">售后保障</view>
+  </view>
+  <view class="goods-content-box" hidden="{{idx==1?false:true}}">
+    <view class="goods-content">
+      <view class="goods-content-item">商品名称：{{allData.goodsshow.title}}</view>
+      <view class="goods-content-item">商品编号：{{allData.goodsshow.orderid}}</view>
+      <view class="goods-content-item"> 品牌：{{allData.goodsshow.brandname}}</view>
+      <view class="goods-content-item">上架时间：{{allData.goodsshow.posttime}}</view>
+    </view>
+    <!-- <view class="gooods-table">
+      <view class="goods-tr">
+        <view class="goods-left">[商品规格]</view>
+        <view class="goods-right">285×315×75mm</view>
+      </view>
+      <view class="goods-tr">
+        <view class="goods-left">[外观尺寸]</view>
+        <view class="goods-right">285×315×75mm</view>
+      </view>
+      <view class="goods-tr">
+        <view class="goods-left">[外箱尺寸]</view>
+        <view class="goods-right">285×315×75mm</view>
+      </view>
+      <view class="goods-tr">
+        <view class="goods-left">[包装数量]</view>
+        <view class="goods-right">{{allData.goodsshow.warnnum}}</view>
+      </view>
+      <view class="goods-tr">
+        <view class="goods-left">[纸张尺寸]</view>
+        <view class="goods-right">285×315×75mm</view>
+      </view>
+    </view> -->
+    <!-- <template is="wxParse" data="{{wxParseData:table.nodes}}"/> -->
+    
+    <rich-text nodes="{{table}}"></rich-text>
+    <view class="goods-info-img">
+      <!-- <image mode="widthFix" src="{{imgUrl + content}}"></image> -->
+      <rich-text nodes="{{img}}" bindtap="tap" data-tapi="{{ii+1}}"></rich-text>
+    </view>
+  </view>
+  <!-- 支付与配送 -->
+  <view class="pay-song" hidden="{{idx==2?false:true}}">
+    <rich-text nodes="{{zfps}}"></rich-text>
+  </view>
+  <!-- 售后保障 -->
+  <view class="shouhou" hidden="{{idx==3?false:true}}">
+  <rich-text nodes="{{zfps}}"></rich-text>
+  </view>
+  <view class="bottom-nav-bar">
+    <text bindtap="goLogin">登录</text>
+    <text>注册</text>
+    <text bindtap="goMessage">在线留言</text>
+    <text bindtap="goTop">回到顶部</text>
+  </view>
+  <view style="height:100rpx;"></view>
+  <view class="bottom-pay-bar">
+    <view class="bottom-item" bindtap="addCollection">
+      <image src="/images/bot1.png"></image>
+      <text>收藏</text>
+    </view>
+    <navigator url="/pages/customerService/customerService" open-type="switchTab" class="bottom-item">
+      <image src="/images/bot2.png"></image>
+      <text>客服</text>
+    </navigator>
+    <navigator url="/pages/shoppingCar/shoppingCar" open-type="switchTab" class="bottom-item">
+      <image src="/images/bot3.png"></image>
+      <text>购物车</text>
+    </navigator>
+    <view class="bottom-btn-box">
+      <view bindtap="addCar">加入购物车</view>
+      <view bindtap="liji">立即购买</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,44 @@
+<!--pages/updatePsw/updatePsw.wxml-->
+<!--pages/message/message.wxml-->
+<view class="container">
+  <form class="form" bindsubmit="formSubmit">
+    <view class="inp-box">
+      <text>昵称：</text>
+      <input name="username" value="{{allData.username}}" disabled="true"></input>
+    </view>
+    <view class="inp-box">
+      <text>旧密码：</text>
+      <input name="oldpassword" password="true"></input>
+    </view>
+    <view class="inp-box">
+      <text>新密码密码：</text>
+      <input name="password" password="true"></input>
+    </view>
+    <view class="inp-box">
+      <text>确认密码：</text>
+      <input name="repassword" password="true"></input>
+    </view>
+    <view class="inp-box">
+      <text>姓名：</text>
+      <input disabled="true" value="{{allData.enname}}"></input>
+    </view>
+    <view class="inp-box">
+      <text>单位名称：</text>
+      <input disabled="true" value="{{allData.cnname}}"></input>
+    </view>
+    <view class="inp-box">
+      <text>E-mail：</text>
+      <input disabled="true" value="{{allData.email}}"></input>
+    </view>
+    <view class="inp-box">
+      <text>qq号码：</text>
+      <input disabled="true" value="{{allData.qqnum}}"></input>
+    </view>
+    <view class="inp-box">
+      <text>手机号码：</text>
+      <input disabled="true" value="{{allData.mobile}}"></input>
+    </view>
+    <button form-type="submit" class="sub-btn">提交</button>
+  </form>
+</view>
+

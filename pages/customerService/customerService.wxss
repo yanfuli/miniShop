@@ -1,0 +1,11 @@
+/* pages/customerService/customerService.wxss */
+.customer-img{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.customer-img image{
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+}

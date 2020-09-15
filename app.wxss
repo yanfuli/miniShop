@@ -1,0 +1,55 @@
+/**app.wxss**/
+.wx-customer{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+.wx-customer image{
+  width: 360rpx;
+}
+.bottom-nav-bar{
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.bottom-nav-bar text{
+  font-size: 28rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  position: relative;
+}
+.bottom-nav-bar text::after{
+  display: block;
+  content: '';
+  width: 1px;
+  height: 30rpx;
+  background: #c4c4c4;
+  position: absolute;
+  top: 8rpx;
+  right: 0;
+}
+.bottom-nav-bar text:nth-child(4)::after{
+  display: block;
+  content: '';
+  width: 1px;
+  height: 30rpx;
+  background: #ffffff;
+  position: absolute;
+  top: 8rpx;
+  right: 0;
+}
+.jilu{
+  color: #333333;
+  width: 700rpx;
+  margin: 0 auto;
+  height: 80rpx;
+  font-size: 24rpx;
+  line-height: 80rpx;
+}
